@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import {getProducts} from '../services/product.service';
 import {useStore} from '../store';
 
-const useGetData = (url: string) => {
+const useGetProducts = () => {
   const {setProducts, products} = useStore();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -21,9 +21,9 @@ const useGetData = (url: string) => {
     };
 
     fetchData();
-  }, [url]);
+  }, []);
 
   return [products, isLoading, error];
 };
 
-export default useGetData;
+export default useGetProducts;
