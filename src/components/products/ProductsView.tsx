@@ -1,9 +1,12 @@
+import Button from '../../shareds/Button';
 import ProductsList from './ProductsList';
 
 const ProductsView = () => {
+  console.log(ProductsList);
   return (
     <>
-      <ProductsList />
+      <Button />
+      {/* <ProductsList /> */}
     </>
   );
 };
