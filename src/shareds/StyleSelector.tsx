@@ -1,6 +1,4 @@
-import gris from '../assets/svg/grid.svg';
-
-const Button = () => {
+const StyleSelector = () => {
   return (
     <div className="btn-group">
       <button type="button" className="btn btn-primary" style={{width: '60px'}}>
@@ -19,4 +17,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default StyleSelector;

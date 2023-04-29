@@ -1,28 +1,29 @@
 import {useState, useEffect} from 'react';
-import {ProductsType} from '../models/Types';
-import axios from 'axios';
+import {getProducts} from '../services/product.service';
+import {useStore} from '../store';
 
 const useGetData = (url: string) => {
-  const [data, setData] = useState<ProductsType[]>([]);
-  const [isLoading, setLoading] = useState(true);
+  const {setProducts, products} = useStore();
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       try {
-        const response = await axios.get(url);
-        setData(response.data);
-        setLoading(false);
+        const response = await getProducts();
+        setProducts(response);
+        setIsLoading(false);
       } catch (error: any) {
         setError(error);
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, [url]);
 
-  return [data, isLoading, error];
+  return [products, isLoading, error];
 };
 
 export default useGetData;

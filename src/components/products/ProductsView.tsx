@@ -1,12 +1,11 @@
-import Button from '../../shareds/Button';
+import StyleSelector from '../../shareds/StyleSelector';
 import ProductsList from './ProductsList';
 
 const ProductsView = () => {
-  console.log(ProductsList);
   return (
     <>
-      <Button />
-      {/* <ProductsList /> */}
+      <StyleSelector />
+      <ProductsList />
     </>
   );
 };
