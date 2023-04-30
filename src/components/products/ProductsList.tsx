@@ -8,10 +8,18 @@ const ProductsList = () => {
   const [isLoading, error] = useGetProducts();
   const {products, style} = useStore();
   const [productsData, setProductsData] = useState<ProductsType[]>(products);
+  const [productsDataCard, setProductsDataCard] = useState<ProductsType[]>(products);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const setDataForCard = (p: ProductsType[], index: number) => {
+    if (index <= 0) return [p[0], p[1], p[2], p[3]];
+    if (index >= 9) return [p[9], p[10], p[11], p[12]];
+    return [p[index], p[index + 1], p[index + 2], p[index + 3]];
+  };
 
   useEffect(() => {
     setProductsData(products);
+    setProductsDataCard(setDataForCard(products, currentSlide));
   }, [products]);
 
   const sliderCounter = (data: string) => {
@@ -23,6 +31,7 @@ const ProductsList = () => {
       if (currentSlide === 0) return;
       setCurrentSlide(currentSlide - 1);
     }
+    setProductsDataCard(setDataForCard(products, currentSlide));
   };
 
   if (isLoading) {
@@ -59,21 +68,26 @@ const ProductsList = () => {
         </button>
       </div>
     );
+  const listData = style !== 'card' ? productsData : productsDataCard;
 
   return (
     <>
-      <ContainerCards color={style}>
-        {products.map((product) => (
-          <Product
-            key={product.id}
-            title={product.title}
-            image={product.image}
-            descriptions={product.descriptions}
-            id={product.id}
-            price={product.price}
-          />
-        ))}
-      </ContainerCards>
+      <div style={{display: 'flex', alignItems: 'center'}}>
+        <button onClick={() => sliderCounter('down')}>&lt;</button>
+        <ContainerCards color={style}>
+          {listData.map((product) => (
+            <Product
+              key={product.id}
+              title={product.title}
+              image={product.image}
+              descriptions={product.descriptions}
+              id={product.id}
+              price={product.price}
+            />
+          ))}
+        </ContainerCards>
+        <button onClick={() => sliderCounter('up')}>&gt;</button>
+      </div>
     </>
   );
 };
