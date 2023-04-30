@@ -23,10 +23,13 @@
   flex-direction: column;
 }
 
-.card-details-image {
+/* .card-details-image {
   flex: 2;
-}
+} */
+/* img {
+  width: 100%;
+} */
 
-.card-details-text {
+/* .card-details-text {
   flex: 1;
-}
+} */

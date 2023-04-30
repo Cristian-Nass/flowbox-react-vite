@@ -17,3 +17,7 @@ export const ContainerCard = styled('div')`
   display: flex;
   flex-direction: column;
 `;
+
+export const ContainerImg = styled('img')`
+  width: 100%;
+`;

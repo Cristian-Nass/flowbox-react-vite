@@ -1,13 +1,11 @@
-import {ContainerCard} from '../styles/ContainerCards';
+import {ProductsType} from '../../models/Types';
+import {ContainerCard, ContainerImg} from '../styles/ContainerCards';
 
-const Product = (props: any) => {
+const Product = (props: ProductsType) => {
   return (
-    // <div>
-    //   <div>{props.title}</div>
-    // </div>
     <ContainerCard>
       <div className="card-details-image">
-        <img src={props.image} width="100%" />
+        <ContainerImg src={props.image} />
       </div>
       <div className="card-details-text">{props.title}</div>
     </ContainerCard>

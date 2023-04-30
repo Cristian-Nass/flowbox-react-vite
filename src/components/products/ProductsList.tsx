@@ -23,7 +23,9 @@ const ProductsList = () => {
             key={product.id}
             title={product.title}
             image={product.image}
-            style={{with: '200px'}}
+            descriptions={product.descriptions}
+            id={product.id}
+            price={product.price}
           />
         ))}
       </ContainerCards>
