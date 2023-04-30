@@ -7,7 +7,7 @@ const Product = (props: ProductsType) => {
 
   return (
     <ContainerCard color={style}>
-      <div className="card-details-image">
+      <div>
         <ContainerImg color={style} src={props.image} />
       </div>
       {style === 'list' && (

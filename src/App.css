@@ -44,3 +44,9 @@
   padding: 10px;
   text-align: left;
 }
+
+.defult-blue-color {
+  color: #fff;
+  background-color: dodgerblue;
+  border-color: dodgerblue;
+}

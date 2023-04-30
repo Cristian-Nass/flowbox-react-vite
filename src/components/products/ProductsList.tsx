@@ -38,7 +38,7 @@ const ProductsList = () => {
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary defult-blue-color"
           style={{width: '60px'}}
           onClick={() => sliderCounter('down')}>
           Prev
@@ -52,7 +52,7 @@ const ProductsList = () => {
         />
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-primary defult-blue-color"
           style={{width: '60px'}}
           onClick={() => sliderCounter('up')}>
           Next

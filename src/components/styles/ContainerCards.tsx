@@ -38,6 +38,7 @@ const handleContainerCard = (color: any) => {
       border-radius: 6px;
       display: flex;
       flex-direction: column;
+      align-self: center;
       `;
     case 'list':
       return `
@@ -47,6 +48,7 @@ const handleContainerCard = (color: any) => {
         margin: 10px;
         padding: 4px;
         background-color: dodgerblue;
+        border-radius: 4px;
       `;
     case 'card':
       return `
@@ -68,7 +70,12 @@ const handleContainerImg = (color: any) => {
     case 'grid':
       return `width: 100%;`;
     case 'list':
-      return `width: 172px;`;
+      return `width: 172px;
+      @media screen and (max-width: 500px) {
+          display: none;
+      }
+      
+      `;
     case 'card':
       return `width: 100%;`;
 
