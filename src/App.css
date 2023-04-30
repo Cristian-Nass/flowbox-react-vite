@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -30,6 +32,8 @@
   width: 100%;
 } */
 
-/* .card-details-text {
-  flex: 1;
-} */
+.card-details-text {
+  padding: 10px;
+  color: aliceblue;
+  font-family: 'Rubik', sans-serif;
+}
