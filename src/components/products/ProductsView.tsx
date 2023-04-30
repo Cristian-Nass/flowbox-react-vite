@@ -4,12 +4,9 @@ import ProductsList from './ProductsList';
 const ProductsView = () => {
   return (
     <>
-      <div>
-        <StyleSelector />
-      </div>
-      <div>
-        <ProductsList />
-      </div>
+      <StyleSelector />
+      <div style={{paddingBottom: '40px'}}></div>
+      <ProductsList />
     </>
   );
 };
