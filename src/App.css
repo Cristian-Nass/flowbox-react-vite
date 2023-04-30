@@ -34,6 +34,13 @@
 
 .card-details-text {
   padding: 10px;
+  font-size: 16px;
   color: aliceblue;
   font-family: 'Rubik', sans-serif;
+}
+
+.card-details-text-descriptions {
+  color: aliceblue;
+  padding: 10px;
+  text-align: left;
 }

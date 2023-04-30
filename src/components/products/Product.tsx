@@ -10,7 +10,12 @@ const Product = (props: ProductsType) => {
       <div className="card-details-image">
         <ContainerImg color={style} src={props.image} />
       </div>
-      {style === 'list' && <div className="card-details-text">{props.title}</div>}
+      {style === 'list' && (
+        <div style={{display: 'flex', flexDirection: 'column', textAlign: 'left'}}>
+          <div className="card-details-text">{props.title}</div>
+          <div className="card-details-text-descriptions">{props.descriptions}</div>
+        </div>
+      )}
       {style === 'card' && <div className="card-details-text">{props.title}</div>}
     </ContainerCard>
   );
