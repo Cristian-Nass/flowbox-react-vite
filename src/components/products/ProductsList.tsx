@@ -17,7 +17,7 @@ const ProductsList = () => {
 
   return (
     <>
-      <ContainerCards>
+      <ContainerCards color="list">
         {products.map((product) => (
           <Product
             key={product.id}
