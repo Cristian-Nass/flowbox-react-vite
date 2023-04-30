@@ -72,8 +72,8 @@ const ProductsList = () => {
 
   return (
     <>
-      <div style={{display: 'flex', alignItems: 'center'}}>
-        <button onClick={() => sliderCounter('down')}>&lt;</button>
+      <div style={{display: style === 'card' ? 'flex' : '', alignItems: 'center'}}>
+        {style === 'card' && <button onClick={() => sliderCounter('down')}>&lt;</button>}
         <ContainerCards color={style}>
           {listData.map((product) => (
             <Product
@@ -86,7 +86,7 @@ const ProductsList = () => {
             />
           ))}
         </ContainerCards>
-        <button onClick={() => sliderCounter('up')}>&gt;</button>
+        {style === 'card' && <button onClick={() => sliderCounter('up')}>&gt;</button>}
       </div>
     </>
   );
