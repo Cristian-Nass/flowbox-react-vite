@@ -1,7 +1,12 @@
 import useGetProducts from '../../hooks/useGetProducts';
+import {useStore} from '../../store';
+import Product from './Product';
 
 const ProductsList = () => {
-  const [data, isLoading, error] = useGetProducts();
+  const [isLoading, error] = useGetProducts();
+  const {products} = useStore();
+  console.log(products);
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -10,7 +15,20 @@ const ProductsList = () => {
     return <div>error</div>;
   }
 
-  return <ul>{JSON.stringify(data)}</ul>;
+  return (
+    <>
+      <div className="cards-view">
+        {products.map((product) => (
+          <Product
+            key={product.id}
+            title={product.title}
+            image={product.image}
+            style={{with: '200px'}}
+          />
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default ProductsList;
