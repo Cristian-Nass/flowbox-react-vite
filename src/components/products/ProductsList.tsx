@@ -12,9 +12,9 @@ const ProductsList = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const setDataForCard = (p: ProductsType[], index: number) => {
-    if (index <= 0) return [p[0], p[1], p[2], p[3]];
-    if (index >= 9) return [p[9], p[10], p[11], p[12]];
-    return [p[index], p[index + 1], p[index + 2], p[index + 3]];
+    if (index <= 0) return [p[0], p[1], p[2]];
+    if (index >= 10) return [p[10], p[11], p[12]];
+    return [p[index], p[index + 1], p[index + 2]];
   };
 
   useEffect(() => {
@@ -68,8 +68,8 @@ const ProductsList = () => {
         </button>
       </div>
     );
-  const listData = style !== 'card' ? productsData : productsDataCard;
 
+  const listData = style !== 'card' ? productsData : productsDataCard;
   return (
     <>
       <div style={{display: style === 'card' ? 'flex' : '', alignItems: 'center'}}>
