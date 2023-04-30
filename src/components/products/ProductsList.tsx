@@ -1,7 +1,7 @@
 import useGetProducts from '../../hooks/useGetProducts';
 import {useStore} from '../../store';
 import Product from './Product';
-
+import {ContainerCards} from '../styles/ContainerCards';
 const ProductsList = () => {
   const [isLoading, error] = useGetProducts();
   const {products} = useStore();
@@ -17,7 +17,7 @@ const ProductsList = () => {
 
   return (
     <>
-      <div className="cards-view">
+      <ContainerCards>
         {products.map((product) => (
           <Product
             key={product.id}
@@ -26,7 +26,7 @@ const ProductsList = () => {
             style={{with: '200px'}}
           />
         ))}
-      </div>
+      </ContainerCards>
     </>
   );
 };
