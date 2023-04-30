@@ -46,7 +46,7 @@ const handleContainerCard = (color: any) => {
         display: flex;
         margin: 10px;
         padding: 4px;
-        background-color: aqua;
+        background-color: dodgerblue;
       `;
     case 'card':
       return `
