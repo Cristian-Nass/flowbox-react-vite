@@ -1,14 +1,17 @@
 import {ProductsType} from '../../models/Types';
-// import {ContainerCard, ContainerImg} from '../styles/ContainerCards';
+import {ContainerCard, ContainerImg} from '../styles/ContainerCards';
+import {useStore} from '../../store';
 
 const Product = (props: ProductsType) => {
+  const {style} = useStore();
+
   return (
-    <div color="list">
+    <ContainerCard color={style}>
       <div className="card-details-image">
-        <img color="list" src={props.image} />
+        <ContainerImg color={style} src={props.image} />
       </div>
-      {/* <div className="card-details-text">{props.title}</div> */}
-    </div>
+      <div className="card-details-text">{props.title}</div>
+    </ContainerCard>
   );
 };
 

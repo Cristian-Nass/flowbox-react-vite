@@ -3,17 +3,16 @@ import useGetProducts from '../../hooks/useGetProducts';
 import {useStore} from '../../store';
 import Product from './Product';
 import {ProductsType} from '../../models/Types';
-// import {ContainerCards} from '../styles/ContainerCards';
+import {ContainerCards} from '../styles/ContainerCards';
 const ProductsList = () => {
   const [isLoading, error] = useGetProducts();
-  const {products} = useStore();
+  const {products, style} = useStore();
   const [productsData, setProductsData] = useState<ProductsType[]>(products);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     setProductsData(products);
   }, [products]);
-  console.log(productsData);
 
   const sliderCounter = (data: string) => {
     if (data === 'up') {
@@ -34,48 +33,49 @@ const ProductsList = () => {
     return <div>error</div>;
   }
 
-  return (
-    <div style={{display: 'flex', justifyContent: 'center'}}>
-      <button
-        type="button"
-        className="btn btn-primary"
-        style={{width: '60px'}}
-        onClick={() => sliderCounter('down')}>
-        Prev
-      </button>
-      <Product
-        title={productsData[currentSlide]?.title}
-        image={productsData[currentSlide]?.image}
-        descriptions={productsData[currentSlide]?.descriptions}
-        id={productsData[currentSlide]?.id}
-        price={productsData[currentSlide]?.price}
-      />
-      <button
-        type="button"
-        className="btn btn-primary"
-        style={{width: '60px'}}
-        onClick={() => sliderCounter('up')}>
-        Next
-      </button>
-    </div>
-  );
+  if (style === 'slide')
+    return (
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{width: '60px'}}
+          onClick={() => sliderCounter('down')}>
+          Prev
+        </button>
+        <Product
+          title={productsData[currentSlide]?.title}
+          image={productsData[currentSlide]?.image}
+          descriptions={productsData[currentSlide]?.descriptions}
+          id={productsData[currentSlide]?.id}
+          price={productsData[currentSlide]?.price}
+        />
+        <button
+          type="button"
+          className="btn btn-primary"
+          style={{width: '60px'}}
+          onClick={() => sliderCounter('up')}>
+          Next
+        </button>
+      </div>
+    );
 
-  // return (
-  //   <>
-  //     <div color="list">
-  //       {products.map((product) => (
-  //         <Product
-  //           key={product.id}
-  //           title={product.title}
-  //           image={product.image}
-  //           descriptions={product.descriptions}
-  //           id={product.id}
-  //           price={product.price}
-  //         />
-  //       ))}
-  //     </div>
-  //   </>
-  // );
+  return (
+    <>
+      <ContainerCards color={style}>
+        {products.map((product) => (
+          <Product
+            key={product.id}
+            title={product.title}
+            image={product.image}
+            descriptions={product.descriptions}
+            id={product.id}
+            price={product.price}
+          />
+        ))}
+      </ContainerCards>
+    </>
+  );
 };
 
 export default ProductsList;

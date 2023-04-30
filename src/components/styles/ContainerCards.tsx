@@ -13,6 +13,16 @@ const handleContainerCards = (color: any) => {
       `;
     case 'list':
       return ``;
+    case 'card':
+      return `
+        display: grid;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-auto-rows: minmax(300px, auto);
+        `;
+
     default:
       return 'color: #000; background: #eee;';
   }
@@ -38,6 +48,16 @@ const handleContainerCard = (color: any) => {
         padding: 4px;
         background-color: aqua;
       `;
+    case 'card':
+      return `
+        background-color: dodgerblue;
+        color: white;
+        padding: 1rem;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        `;
+
     default:
       return 'color: #000; background: #eee;';
   }
@@ -49,6 +69,9 @@ const handleContainerImg = (color: any) => {
       return `width: 100%;`;
     case 'list':
       return `width: 172px;`;
+    case 'card':
+      return `width: 100%;`;
+
     default:
       return 'color: #000; background: #eee;';
   }
