@@ -32,7 +32,7 @@ const ProductsList = () => {
     } else {
       setProductsDataCard(setDataForCardOne(products, currentSlide));
     }
-  }, [products, matches]);
+  }, [products, matches, currentSlide]);
 
   const sliderCounter = (data: string) => {
     if (data === 'up') {
