@@ -6,9 +6,9 @@ const Product = (props: ProductsType) => {
   const {style} = useStore();
 
   return (
-    <ContainerCard color={style}>
+    <ContainerCard theme={style}>
       <div>
-        <ContainerImg color={style} src={props.image} />
+        <ContainerImg theme={style} src={props.image} />
       </div>
       {style === 'list' && (
         <div style={{display: 'flex', flexDirection: 'column', textAlign: 'left'}}>

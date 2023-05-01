@@ -74,7 +74,7 @@ const ProductsList = () => {
     <>
       <div style={{display: style === 'card' ? 'flex' : '', alignItems: 'center'}}>
         {style === 'card' && <button onClick={() => sliderCounter('down')}>&lt;</button>}
-        <ContainerCards color={style}>
+        <ContainerCards theme={style}>
           {listData.map((product) => (
             <Product
               key={product.id}

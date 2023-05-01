@@ -65,8 +65,8 @@ const handleContainerCard = (color: any) => {
   }
 };
 
-const handleContainerImg = (color: any) => {
-  switch (color) {
+const handleContainerImg = (theme: any) => {
+  switch (theme) {
     case 'grid':
       return `width: 100%;`;
     case 'list':
@@ -85,13 +85,13 @@ const handleContainerImg = (color: any) => {
 };
 
 export const ContainerCards = styled('div')`
-  ${({color}) => handleContainerCards(color)};
+  ${({theme}) => handleContainerCards(theme)};
 `;
 
 export const ContainerCard = styled('div')`
-  ${({color}) => handleContainerCard(color)};
+  ${({theme}) => handleContainerCard(theme)};
 `;
 
 export const ContainerImg = styled('img')`
-  ${({color}) => handleContainerImg(color)};
+  ${({theme}) => handleContainerImg(theme)};
 `;
