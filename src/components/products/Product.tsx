@@ -1,5 +1,5 @@
 import {ProductsType} from '../../models/Types';
-import {ContainerCard, ContainerImg} from '../styles/ContainerCards';
+import {ContainerCard, ContainerImg} from '../styles/ContainerStyled';
 import {useStore} from '../../store';
 
 const Product = (props: ProductsType) => {

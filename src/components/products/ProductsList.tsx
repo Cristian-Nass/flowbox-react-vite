@@ -3,7 +3,7 @@ import useGetProducts from '../../hooks/useGetProducts';
 import {useStore} from '../../store';
 import Product from './Product';
 import {ProductsType} from '../../models/Types';
-import {ContainerCards} from '../styles/ContainerCards';
+import {ContainerCards} from '../styles/ContainerStyled';
 import {useMediaQuery} from 'usehooks-ts';
 import ProductsSlideView from './ProductsSlideView';
 

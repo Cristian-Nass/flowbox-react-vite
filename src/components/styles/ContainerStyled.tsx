@@ -77,6 +77,8 @@ const handleContainerImg = (styleMode: string) => {
       return `width: 100%;`;
     case 'slide':
       return `
+      width: 50vw;
+      max-width: 1000px;
       @media screen and (max-width: 620px) {
         width: 76vw;
       }
