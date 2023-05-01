@@ -72,8 +72,7 @@ const handleContainerImg = (styleMode: any) => {
       @media screen and (max-width: 600px) {
           display: none;
       }
-      
-      `;
+    `;
     case 'card':
       return `width: 100%;`;
     case 'slide':
