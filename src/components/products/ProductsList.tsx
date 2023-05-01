@@ -4,12 +4,15 @@ import {useStore} from '../../store';
 import Product from './Product';
 import {ProductsType} from '../../models/Types';
 import {ContainerCards} from '../styles/ContainerCards';
+import {useMediaQuery} from 'usehooks-ts';
+
 const ProductsList = () => {
   const [isLoading, error] = useGetProducts();
   const {products, style} = useStore();
   const [productsData, setProductsData] = useState<ProductsType[]>(products);
   const [productsDataCard, setProductsDataCard] = useState<ProductsType[]>(products);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const matches = useMediaQuery('(min-width: 724px)');
 
   const setDataForCard = (p: ProductsType[], index: number) => {
     if (index <= 0) return [p[0], p[1], p[2]];
@@ -17,10 +20,18 @@ const ProductsList = () => {
     return [p[index], p[index + 1], p[index + 2]];
   };
 
+  const setDataForCardOne = (p: ProductsType[], index: number) => {
+    return [p[index]];
+  };
+
   useEffect(() => {
     setProductsData(products);
-    setProductsDataCard(setDataForCard(products, currentSlide));
-  }, [products]);
+    if (matches) {
+      setProductsDataCard(setDataForCard(products, currentSlide));
+    } else {
+      setProductsDataCard(setDataForCardOne(products, currentSlide));
+    }
+  }, [products, matches]);
 
   const sliderCounter = (data: string) => {
     if (data === 'up') {
@@ -31,7 +42,11 @@ const ProductsList = () => {
       if (currentSlide === 0) return;
       setCurrentSlide(currentSlide - 1);
     }
-    setProductsDataCard(setDataForCard(products, currentSlide));
+    if (matches) {
+      setProductsDataCard(setDataForCard(products, currentSlide));
+    } else {
+      setProductsDataCard(setDataForCardOne(products, currentSlide));
+    }
   };
 
   if (isLoading) {
@@ -41,7 +56,6 @@ const ProductsList = () => {
   if (error) {
     return <div>error</div>;
   }
-
   if (style === 'slide')
     return (
       <div style={{display: 'flex', justifyContent: 'center'}}>
