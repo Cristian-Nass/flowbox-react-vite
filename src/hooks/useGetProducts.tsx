@@ -3,7 +3,7 @@ import {getProducts} from '../services/product.service';
 import {useStore} from '../store';
 
 const useGetProducts = () => {
-  const {setProducts, products} = useStore();
+  const {setProducts} = useStore();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -23,7 +23,7 @@ const useGetProducts = () => {
     fetchData();
   }, []);
 
-  return [products, isLoading, error];
+  return [isLoading, error];
 };
 
 export default useGetProducts;

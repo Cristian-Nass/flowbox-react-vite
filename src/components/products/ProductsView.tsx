@@ -5,6 +5,7 @@ const ProductsView = () => {
   return (
     <>
       <StyleSelector />
+      <div style={{paddingBottom: '40px'}}></div>
       <ProductsList />
     </>
   );

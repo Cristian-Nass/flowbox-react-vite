@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,38 +7,46 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.cards-view {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: minmax(300px, auto);
 }
 
 .card {
-  padding: 2em;
+  background-color: dodgerblue;
+  color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
 }
 
-.read-the-docs {
-  color: #888;
+/* .card-details-image {
+  flex: 2;
+} */
+/* img {
+  width: 100%;
+} */
+
+.card-details-text {
+  padding: 10px;
+  font-size: 16px;
+  color: aliceblue;
+  font-family: 'Rubik', sans-serif;
+}
+
+.card-details-text-descriptions {
+  color: aliceblue;
+  padding: 10px;
+  text-align: left;
+}
+
+.defult-blue-color {
+  color: #fff;
+  background-color: dodgerblue;
+  border-color: dodgerblue;
 }
