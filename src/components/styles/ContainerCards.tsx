@@ -71,13 +71,19 @@ const handleContainerImg = (theme: any) => {
       return `width: 100%;`;
     case 'list':
       return `width: 172px;
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 600px) {
           display: none;
       }
       
       `;
     case 'card':
       return `width: 100%;`;
+    case 'slide':
+      return `
+      @media screen and (max-width: 620px) {
+        width: 76vw;
+      }
+    `;
 
     default:
       return 'color: #000; background: #eee;';
