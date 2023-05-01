@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const handleContainerCards = (color: any) => {
-  switch (color) {
+const handleContainerCards = (styleMode: any) => {
+  switch (styleMode) {
     case 'grid':
       return `
       display: grid;
@@ -28,8 +28,8 @@ const handleContainerCards = (color: any) => {
   }
 };
 
-const handleContainerCard = (color: any) => {
-  switch (color) {
+const handleContainerCard = (styleMode: any) => {
+  switch (styleMode) {
     case 'grid':
       return `
       background-color: dodgerblue;
@@ -42,8 +42,6 @@ const handleContainerCard = (color: any) => {
       `;
     case 'list':
       return `
-        width: 100%;
-        height: 180px;
         display: flex;
         margin: 10px;
         padding: 4px;
@@ -65,8 +63,8 @@ const handleContainerCard = (color: any) => {
   }
 };
 
-const handleContainerImg = (theme: any) => {
-  switch (theme) {
+const handleContainerImg = (styleMode: any) => {
+  switch (styleMode) {
     case 'grid':
       return `width: 100%;`;
     case 'list':
