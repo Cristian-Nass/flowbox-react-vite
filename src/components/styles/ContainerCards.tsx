@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const handleContainerCards = (styleMode: any) => {
+const handleContainerCards = (styleMode: string) => {
   switch (styleMode) {
     case 'grid':
       return `
@@ -28,7 +28,7 @@ const handleContainerCards = (styleMode: any) => {
   }
 };
 
-const handleContainerCard = (styleMode: any) => {
+const handleContainerCard = (styleMode: string) => {
   switch (styleMode) {
     case 'grid':
       return `
@@ -63,7 +63,7 @@ const handleContainerCard = (styleMode: any) => {
   }
 };
 
-const handleContainerImg = (styleMode: any) => {
+const handleContainerImg = (styleMode: string) => {
   switch (styleMode) {
     case 'grid':
       return `width: 100%;`;
