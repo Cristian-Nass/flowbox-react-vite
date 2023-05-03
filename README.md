@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 ### `npm install`
 
-after npm i or npm install
+After npm i or npm install
 you have to do
 npm i @testing-library/react-hooks --force
 
@@ -37,7 +37,6 @@ I created 5 seperate Test
 
 1. Zustand for global state management
    https://zustand-demo.pmnd.rs/
-
 2. Style Component for conditionally style
    https://styled-components.com/
 
