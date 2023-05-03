@@ -70,7 +70,15 @@ const ProductsList = () => {
         }}
       >
         {style === "card" && (
-          <button onClick={() => sliderCounter("down")}>&lt;</button>
+          <button
+            onClick={() => sliderCounter("down")}
+            disabled={currentSlide <= 1 && !!matches}
+            style={{
+              cursor: currentSlide <= 1 && !!matches ? "not-allowed" : "",
+            }}
+          >
+            &lt;
+          </button>
         )}
         <ContainerCards theme={style}>
           {listData.map((product) => (
@@ -85,7 +93,15 @@ const ProductsList = () => {
           ))}
         </ContainerCards>
         {style === "card" && (
-          <button onClick={() => sliderCounter("up")}>&gt;</button>
+          <button
+            onClick={() => sliderCounter("up")}
+            disabled={currentSlide >= 10 && !!matches}
+            style={{
+              cursor: currentSlide >= 10 && !!matches ? "not-allowed" : "",
+            }}
+          >
+            &gt;
+          </button>
         )}
       </div>
     </>
