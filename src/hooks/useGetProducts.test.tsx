@@ -25,7 +25,7 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-test("should increment", async () => {
+test("test the http reauest inside custom hook and get response", async () => {
   const { result, waitForNextUpdate } = renderHook(() => useGetProducts());
 
   await waitForNextUpdate();

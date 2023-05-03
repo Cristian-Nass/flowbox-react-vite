@@ -7,7 +7,7 @@ it("Prev button existing", async () => {
   expect(buttonsPrevElement).toBeInTheDocument();
 });
 
-it("handle  on click Next button", async () => {
+it("handle on click Next button", async () => {
   render(<ProductsSlideView />);
   const onClick = jest.fn();
   const buttonsNextElement = screen.getByRole("button", { name: "Next" });
