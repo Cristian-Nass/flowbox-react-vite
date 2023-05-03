@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import StyleSelector from "./StyleSelector";
+import StyleSelector from "../StyleSelector";
 
 it("Style Button Counter", async () => {
   render(<StyleSelector />);

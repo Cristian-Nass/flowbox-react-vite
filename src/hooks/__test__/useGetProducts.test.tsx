@@ -1,8 +1,8 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 
-import useGetProducts from "./useGetProducts";
+import useGetProducts from "../useGetProducts";
 
 const server = setupServer(
   rest.get(
@@ -25,7 +25,7 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-test("test the http reauest inside custom hook and get response", async () => {
+it("test the http reauest inside custom hook and get response", async () => {
   const { result, waitForNextUpdate } = renderHook(() => useGetProducts());
 
   await waitForNextUpdate();
