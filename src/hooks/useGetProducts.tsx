@@ -1,10 +1,12 @@
-import {useState, useEffect} from 'react';
-import {getProducts} from '../services/product.service';
-import {useStore} from '../store';
+import { useState, useEffect } from "react";
+import { getProducts } from "../services/product.service";
+import { useStore } from "../store";
+import { ProductsType } from "../models/Types";
 
 const useGetProducts = () => {
-  const {setProducts} = useStore();
+  const { setProducts } = useStore();
   const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState<ProductsType[]>([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -13,6 +15,7 @@ const useGetProducts = () => {
       try {
         const response = await getProducts();
         setProducts(response);
+        setData(response);
         setIsLoading(false);
       } catch (error: any) {
         setError(error);
@@ -21,9 +24,9 @@ const useGetProducts = () => {
     };
 
     fetchData();
-  }, []);
+  }, [setProducts]);
 
-  return [isLoading, error];
+  return [isLoading, error, data];
 };
 
 export default useGetProducts;
