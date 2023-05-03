@@ -1,19 +1,29 @@
-import {useState, useEffect} from 'react';
-import useGetProducts from '../../hooks/useGetProducts';
-import {useStore} from '../../store';
-import Product from './Product';
-import {ProductsType} from '../../models/Types';
-import {ContainerCards} from '../styles/ContainerStyled';
-import {useMediaQuery} from 'usehooks-ts';
-import ProductsSlideView from './ProductsSlideView';
+import { useState, useEffect } from "react";
+import useGetProducts from "../../hooks/useGetProducts";
+import { useStore } from "../../store";
+import Product from "./Product";
+import { ProductsType } from "../../models/Types";
+import { ContainerCards } from "../styles/ContainerStyled";
+import { useMediaQuery } from "usehooks-ts";
+import ProductsSlideView from "./ProductsSlideView";
 
 const ProductsList = () => {
   const [isLoading, error] = useGetProducts();
-  const {products, style} = useStore();
+  const { products, style } = useStore();
   const [productsData, setProductsData] = useState<ProductsType[]>(products);
-  const [productsDataCard, setProductsDataCard] = useState<ProductsType[]>(products);
+  const [productsDataCard, setProductsDataCard] =
+    useState<ProductsType[]>(products);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const matches = useMediaQuery('(min-width: 724px)');
+  const matches = useMediaQuery("(min-width: 724px)");
+
+  useEffect(() => {
+    setProductsData(products);
+    if (matches) {
+      setProductsDataCard(setDataForCard(products, currentSlide));
+    } else {
+      setProductsDataCard(setDataForCardOne(products, currentSlide));
+    }
+  }, [products, matches, currentSlide]);
 
   const setDataForCard = (p: ProductsType[], index: number) => {
     if (index <= 1) return [p[0], p[1], p[2]];
@@ -25,21 +35,12 @@ const ProductsList = () => {
     return [p[index]];
   };
 
-  useEffect(() => {
-    setProductsData(products);
-    if (matches) {
-      setProductsDataCard(setDataForCard(products, currentSlide));
-    } else {
-      setProductsDataCard(setDataForCardOne(products, currentSlide));
-    }
-  }, [products, matches, currentSlide]);
-
   const sliderCounter = (data: string) => {
-    if (data === 'up') {
+    if (data === "up") {
       if (currentSlide === productsData.length - 1) return;
       setCurrentSlide(currentSlide + 1);
     }
-    if (data === 'down') {
+    if (data === "down") {
       if (currentSlide === 0) return;
       setCurrentSlide(currentSlide - 1);
     }
@@ -57,13 +58,20 @@ const ProductsList = () => {
   if (error) {
     return <div>error</div>;
   }
-  const listData = style !== 'card' ? productsData : productsDataCard;
+  const listData = style !== "card" ? productsData : productsDataCard;
 
-  if (style === 'slide') return <ProductsSlideView />;
+  if (style === "slide") return <ProductsSlideView />;
   return (
     <>
-      <div style={{display: style === 'card' ? 'flex' : '', alignItems: 'center'}}>
-        {style === 'card' && <button onClick={() => sliderCounter('down')}>&lt;</button>}
+      <div
+        style={{
+          display: style === "card" ? "flex" : "",
+          alignItems: "center",
+        }}
+      >
+        {style === "card" && (
+          <button onClick={() => sliderCounter("down")}>&lt;</button>
+        )}
         <ContainerCards theme={style}>
           {listData.map((product) => (
             <Product
@@ -76,7 +84,9 @@ const ProductsList = () => {
             />
           ))}
         </ContainerCards>
-        {style === 'card' && <button onClick={() => sliderCounter('up')}>&gt;</button>}
+        {style === "card" && (
+          <button onClick={() => sliderCounter("up")}>&gt;</button>
+        )}
       </div>
     </>
   );
