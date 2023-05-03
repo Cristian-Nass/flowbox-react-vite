@@ -15,7 +15,7 @@ npm i @testing-library/react-hooks --force
 ### `IMPORTANT`
 
 After the npm install if get any Error.\
-run: npm i @testing-library/react-hooks --force \
+Run: npm i @testing-library/react-hooks --force \
 Apparently, this package has little problem with React +18
 but it's not any problem, this is a unit test package for react
 custom-hook, and exist in the dev-Dependencies.
