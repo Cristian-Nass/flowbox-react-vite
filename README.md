@@ -8,9 +8,8 @@ In the project directory, you can run:
 
 ### `npm install`
 
-After npm i or npm install
-you have to do
-npm i @testing-library/react-hooks --force
+go to the project folder and run \
+npm install
 
 ### `IMPORTANT`
 
